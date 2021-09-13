@@ -1,48 +1,36 @@
-import Link from 'next/link';
 import React from 'react';
-import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from 'react-icons/ai';
-import { SiKaios } from 'react-icons/si';
+import Typical from 'react-typical'
 
-import { Container, Div1, Div2, Div3, NavLink, SocialIcons } from './HeaderStyles';
+import { Section, SectionText, SectionTitle } from '../../styles/GlobalComponents';
+import Button from '../../styles/GlobalComponents/Button';
+import { LeftSection } from './HeroStyles';
 
-const Header = () =>  (
-  <Container>
-    <Div1>
-      <Link href="/">
-        <a style={{ display: 'flex', alignItems: 'center', color:"white", marginBottom: '40px' }}>
-          <SiKaios size="3rem" /> <span style={{ fontSize: '2rem' }}>ingshuk</span>
-        </a>
-      </Link>
-    </Div1>
-    <Div2>        
-      <li>
-        <Link href="#about">
-          <NavLink>About</NavLink>
-        </Link>
-      </li>
-      <li>
-        <Link href="#tech">
-          <NavLink>Technologies</NavLink>
-        </Link>
-      </li>        
-      <li>
-        <Link href="#projects">
-          <NavLink>Projects</NavLink>
-        </Link>
-      </li>
-    </Div2>
-      <Div3>
-        <SocialIcons href="https://github.com/Kingshuk-Deb" style={{marginBottom: '20px' }}>
-          <AiFillGithub size="3rem"/>
-        </SocialIcons>
-        <SocialIcons href="https://www.linkedin.com/in/kingshuk-deb-1934461b7/" style={{marginBottom: '20px' }}>
-          <AiFillLinkedin size="3rem" />
-        </SocialIcons>
-        <SocialIcons href="https://www.instagram.com/lifebyronnie/" style={{marginBottom: '20px' }}>
-          <AiFillInstagram size="3rem"/>
-        </SocialIcons>
-      </Div3>
-    </Container>
+const sendEmail = () => {
+  window.location = "mailto:kingshukdeb007@gmail.com";
+}
+
+
+const Hero = (props) => (
+  <>
+    <Section row nopadding style={{marginBottom: '40px'}}>
+      <LeftSection>
+      <SectionText style={{color: 'whitesmoke'}}>Hi my name is,</SectionText>
+        <SectionTitle main center style={{marginTop: '-30px'}} >
+          Kingshuk Deb <br />
+          I am<br />
+          <Typical
+            steps={['a Student.', 2000, 'a Developer.', 1000, 'a Coder.', 1000]}
+            loop={Infinity}
+            wrapper="SectionTitle"
+          />
+        </SectionTitle>
+        <SectionText style={{marginBottom: '55px'}}>
+        I believe Whether we’re fighting climate change or going to space, everything is moved forward by computers. The purpose of a true programmer is far beyond the comfort of his chair.
+        </SectionText>
+        <Button onClick={sendEmail}>Wanna Hire Me!</Button>
+      </LeftSection>
+    </Section>
+  </>
 );
 
-export default Header;
+export default Hero;
